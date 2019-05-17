@@ -28,7 +28,7 @@ def get_user(id):
 
 
 def create_user():
-    data = request.form
+    data = request.json
     if 'name' not in data or 'age' not in data:
         return Response('{"status": "error", "error": "Bad request"}', status=400, mimetype='application/json')
     with open('data.json', 'r') as result_data:
@@ -48,7 +48,7 @@ def create_user():
 
 
 def update_user(id):
-    data = request.form
+    data = request.json
     if 'name' not in data or 'age' not in data:
         return Response('{"status": "error", "error": "Bad request"}', status=400, mimetype='application/json')
     with open('data.json', 'r') as result_data:
